@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!---TAB-LOGO: <link rel="icon" href="{{ url_for('static', filename='../static/imgs/logo/logo.png') }}"> -->
+    <link href="{{ url_for('static', filename='../static/css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='../static/css/styles_tienda.css') }}" rel="stylesheet" />
+    <title>Administración</title>
+</head>
+
+<body>
+
+    <navbar class="navbar">
+        <div class="navlink">
+            <li><a href="/">Home</a></li>
+            <li><a href="/gestion/productos">Gestión de productos</a></li>
+            <li><a href="">link2</a></li>
+            <li><a href="">link2</a></li>
+            <li><a href="">link4</a></li>
+        </div>
+    </navbar>
+
+    <main>
+        {% block body %}
+
+        {% endblock %}
+    </main>
+</body>
+
+</html>

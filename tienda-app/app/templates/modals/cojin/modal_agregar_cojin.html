@@ -1,0 +1,55 @@
+<div class="modal fade" name="-add-cojin" id="-add-cojin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-confirmation">
+                <h5 class="modal-title text-white"><i class=""></i>Agregar cojín</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="outline:none;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/gestion/productos/cojines/agregar" method="POST">
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="form-group" style="text-align: justify;">
+                            <div class="title mb-2">Ingrese datos para agregar un nuevo cojín:</div>
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <span class="details">Stock</span>
+                                    <input type="number" placeholder="Stock actual" required name="stock" min="0">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Precio unitario</span>
+                                    <input type="number" placeholder="Precio unitario" required name="price" min="0">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Altura</span>
+                                    <input type="number" placeholder="Altura" required name="heigth" min="0">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Ancho</span>
+                                    <input type="number" placeholder="Ancho" required name="width" min="0">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Tela</span>
+                                    <input type="text" placeholder="Tipo de tela" required name="fabric" maxlength="100">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Relleno</span>
+                                    <select name="fill" required>
+                                        {% for relleno in rellenos %}
+                                        <option value="{{ relleno['id'] }}">{{ relleno['tipo_relleno'] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-warning">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

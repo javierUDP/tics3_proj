@@ -1,0 +1,53 @@
+{% extends "layout_in.html" %}
+{% include "/modals/cojin/modal_agregar_cojin.html" %}
+{% include "/modals/cojin/modal_editar_cojin.html" %}
+{% include "/modals/cojin/modal_eliminar_cojin.html" %}
+{% block_body %}
+
+<div class="header">
+    <h2>Gestión de cojines</h2>
+    <button title="Agregar cojín" data-target="#-add-cojin" data-toggle="modal">Agregar cojín</button>
+</div>
+
+<div class="product-detail">
+    {% if lista_cojines %}
+    {% for cojin in lista_cojines %}
+    <div class="product-card">
+        <div class="producto-info">
+            <h4>Cojín {{ loop.index }}</h4>
+            <ul>
+                <li>Relleno: {{ caracteristicas[loop.index-1]['tipo_relleno'] }}</li>
+                <li>Precio unitario: {{ cojin['precio_unitario'] }}</li>
+                <li>Stock: {{ cojin['stock'] }}</li>
+                <li>Altura: {{ caracteristicas[loop.index-1]['altura'] }}</li>
+                <li>Ancho: {{ caracteristicas[loop.index-1]['ancho'] }}</li>
+                <li>Tela: {{ caracteristicas[loop.index-1]['tipo_tela'] }}</li>
+            </ul>
+        </div>
+        <div class="producto-buttons">
+            <button title="Editar cojín" data-target="#edit-cojin" data-toggle="modal" onclick="editar_cojin({{ cojin['id'] }});">Editar cojín</button>
+            <button title="Eliminar cojín" data-target="#remove-cojin" data-toggle="modal" onclick="eliminar_cojin({{ cojin['id'] }});">Eliminar cojín</button>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert" role="alert">
+        <i class=""></i>Actualmente no existen cojines registrados.
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+<script>
+
+    function editar_cojin(id_cojin) {
+        var form = document.getElementById("form-edit-cojin");
+        form.action = "/productos/gestion/cojines/editar/"+id_cojin;
+    }
+
+    function eliminar_cojin(id_cojin) {
+        var form = document.getElementById("form-remove-cojin");
+        form.action = "/productos/gestion/cojines/eliminar/"+id_cojin;
+    }
+
+</script>
