@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for producto in producto %}
+<section>
+    <div class="text-dark text-center">
+        <div>
+            <p class="h3 text-dark mb-4" id="cities_anchor">{{producto.nombre}}</p>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="text-center card">
+            <div class="card-body">
+                <h4 class="card-title">{{producto.nombre}}</h4>
+                <p class="card-text">{{producto.descripcion}}</p>
+            </div>
+            <div class="text-center card card-footer"> 
+                <form method="GET" action="/comprar">
+                <input type="hidden" id="product_id" name="product_id" value="{{ producto.id }}">
+                <input type="number" id="cantidad" name="cantidad" min="1" max="{{producto.stock}}" placeholder="Ingrese cantidad"> 
+                <input class="btn btn-primary" type="submit" value="Comprar">
+                </form>  
+            </div>
+        </div>
+        
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

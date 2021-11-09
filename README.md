@@ -1,1 +1,1 @@
-#Primera versión de tienda para tics3
+# Bases_s1
